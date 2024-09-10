@@ -26,7 +26,10 @@ export default defineNuxtConfig({
     },
 
     performanceMetrics: {
-
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 }
+      },
       timing: {
         fcp: 800,
         dcl: 1200 // fallback if fcp is not available (safari)
