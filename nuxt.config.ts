@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   modules: ['nuxt-booster'],
   runtimeConfig: {
     public: {
-      disableInfoLayer: false
+      disableInfoLayer: true
     }
   },
 
