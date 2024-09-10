@@ -8,4 +8,28 @@ export default defineNuxtConfig({
       disableInfoLayer: false
     }
   },
+  booster: {
+    debug: false,
+    // targetFormats: ['jpg|jpeg|png|gif'],
+    densities: 'x1 x2',
+
+    optimizeSSR: {
+      cleanPreloads: true,
+      cleanPrefetches: true,
+      inlineStyles: true
+    },
+
+    detection: {
+      performance: true,
+      browserSupport: true,
+      battery: true
+    },
+
+    performanceMetrics: {
+
+      timing: {
+        fcp: 800,
+        dcl: 1200 // fallback if fcp is not available (safari)
+      }
+    },}
 })
