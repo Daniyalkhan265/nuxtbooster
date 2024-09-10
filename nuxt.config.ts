@@ -10,10 +10,12 @@ export default defineNuxtConfig({
   modules: ['nuxt-booster'],
   runtimeConfig: {
     public: {
-      disableInfoLayer: true
+      disableInfoLayer: false
     }
   },
-
+  speedkit: {
+    runOptions: { maxTime: 1000, threshold: 0.65 }
+  },
   ssr: true,
 
   imports: {
