@@ -8,6 +8,11 @@ export default defineNuxtConfig({
       disableInfoLayer: false
     }
   },
+  ssr: true,
+
+  imports: {
+    autoImport: false
+  },
   booster: {
     debug: false,
     // targetFormats: ['jpg|jpeg|png|gif'],
