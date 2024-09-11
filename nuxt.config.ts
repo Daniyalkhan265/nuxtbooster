@@ -17,5 +17,5 @@ export default defineNuxtConfig({
     autoImport: false
   },
 
-  nuxtBooster: true
+  booster: true
 })
