@@ -6,12 +6,13 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-booster'
   ],
+
   runtimeConfig: {
     public: {
       disableInfoLayer: false
     }
   },
-  ssr: true,
+  ssr: false,
 
   imports: {
     autoImport: false
