@@ -7091,10 +7091,10 @@ nuxi@^3.13.1:
   optionalDependencies:
     fsevents "~2.3.3"
 
-nuxt-booster@3.1.6-next.3:
-  version "3.1.6-next.3"
-  resolved "https://registry.yarnpkg.com/nuxt-booster/-/nuxt-booster-3.1.6-next.3.tgz#2b8cc83e2b81df2e079e0af90300e0f80ea86a94"
-  integrity sha512-VvqL3JW7OwEakeChVfKmwA2yRTs+aPGjWSfQSxXyW8Pgb3cHF3pyf5JBUd3yW8dseivtjef/2qZSwxO8/zPpxg==
+nuxt-booster@3.1.6-next.4:
+  version "3.1.6-next.4"
+  resolved "https://registry.yarnpkg.com/nuxt-booster/-/nuxt-booster-3.1.6-next.4.tgz#5d1fa43a53f580694fb879c45bd1f57a25f684fb"
+  integrity sha512-7H3pxa17B4LfkkLb96kPgr8LpI0akcei7rPWrAPicwIqHvn8fDaDBYYSJLV7NimovPBYJwmphAsce7y1G0hKKg==
   dependencies:
     "@nuxt/image" "1.8.0"
     "@nuxtjs/fontaine" "0.4.3"

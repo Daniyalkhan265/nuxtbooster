@@ -13,9 +13,7 @@ export default defineNuxtConfig({
       disableInfoLayer: false
     }
   },
-  speedkit: {
-    runOptions: { maxTime: 1000, threshold: 0.65 }
-  },
+
   ssr: true,
 
   imports: {
