@@ -10,13 +10,19 @@ export default defineNuxtConfig({
   scripts: [
     { src: '~/samsung.ts', type: 'module' }
   ],
+      modules: [
+        (context, { isDev }) => {
+          if (isDev || navigator.userAgent.toLowerCase().includes('samsung')) {
+            // Don't include nuxt-booster
+          } else {
+            return 'nuxt-booster'; // Include nuxt-booster for other browsers
+          }
+        },
+      ],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
     }
-  },
-  speedkit: {
-    runOptions: { maxTime: 1000, threshold: 0.65 }
   },
   ssr: true,
 
@@ -51,15 +57,6 @@ export default defineNuxtConfig({
         fcp: 800,
         dcl: 1200 // fallback if fcp is not available (safari)
       }
-    },},
-  hooks: {
-    'app:mounted': async () => {
-      const isSupportedBrowser = !navigator.userAgent.toLowerCase().includes('samsung');
-      if (isSupportedBrowser) {
-        await import('nuxt-booster')
-      } else {
-        console.warn('Nuxt Booster disabled for Samsung browser');
-      }
-    }
-  }
+    },}
+
 })
