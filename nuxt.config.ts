@@ -31,11 +31,11 @@ export default defineNuxtConfig({
   build: {
     // ... other build options
     moduleOptions: {
-      preloading: false
+      preloading: true
     }
   },
   booster: {
-    debug: false,
+    debug: true,
     // targetFormats: ['jpg|jpeg|png|gif'],
     densities: 'x1 x2',
 
