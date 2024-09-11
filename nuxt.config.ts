@@ -4,7 +4,7 @@ function getBuilder() {
       process.env.npm_config_builder || process.env.BUILDER || undefined;
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
 }
-const data = true
+const isSamsung = navigator.userAgent.toLowerCase().includes('samsung');
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     ()=>{
-    if ( data) {
+    if (isSamsung) {
           return
    }
   else {
