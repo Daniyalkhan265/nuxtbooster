@@ -1,14 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import boosterModule from 'nuxt-booster';
 
 export default defineNuxtConfig({
 
   devtools: { enabled: true },
-  modules: [
-    ['nuxt-booster', {
-      // ... other nuxt-booster options
-    ssr: false,
-    }]
-  ],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
@@ -19,6 +14,16 @@ export default defineNuxtConfig({
   imports: {
     autoImport: false
   },
-
-  nuxtBooster: true
+  build: {
+    // ... other build options
+    moduleOptions: {
+      preloading: true
+    }
+  },
+  hooks: {
+    'modules:before': () => {
+      // Initialize the nuxt-booster module
+      boosterModule();
+    }
+  }
 })
