@@ -4,13 +4,23 @@ function getBuilder() {
       process.env.npm_config_builder || process.env.BUILDER || undefined;
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
 }
+const data = true
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   scripts: [
     { src: '~/samsung.ts', type: 'module' }
   ],
-  modules: ['nuxt-booster', '@nuxt/scripts'],
+  modules: [
+    ()=>{
+    if ( data) {
+          return
+   }
+  else {
+    return 'nuxt-booster'
+  }
+  }
+     , '@nuxt/scripts'],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
