@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   ssr: true,
 
   imports: {
-    autoImport: false
+    autoImport: true
   },
   builder: getBuilder(),
 

@@ -1,6 +1,7 @@
 <template>
   <div>{{ text }}</div>
-  <button @click.native="checking">click me</button>
+  <button @click="checking">click me</button>
+  <span ref="https://nuxt.com/modules"></span>
 </template>
 
 <script lang="ts" setup>
