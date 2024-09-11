@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<no-script lang="ts" setup async>
+<script>
 import { ref, onMounted } from 'vue';
 
 const text = ref("this is testing project for nuxt booster");
@@ -28,4 +28,4 @@ onMounted(() => {
 const checking = () => {
   text.value = "button is clicked";
 };
-</no-script>
+</script>
