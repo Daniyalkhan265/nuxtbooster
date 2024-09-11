@@ -6,7 +6,8 @@ function getBuilder() {
 }
 export default defineNuxtConfig({
     buildModules: [
-        '@nuxt/typescript-build', // Enables TypeScript support in Nuxt
+        '@nuxt/typescript-build',
+          'nuxt-booster'// Enables TypeScript support in Nuxt
     ],
   modern: 'client',
   compatibilityDate: '2024-04-03',
