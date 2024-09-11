@@ -12,7 +12,9 @@ export default defineNuxtConfig({
   modern: 'client',
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-
+  modules: [
+    ['nuxt-booster']
+  ],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
