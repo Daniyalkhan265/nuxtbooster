@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   scripts: [
     { src: '~/samsung.ts', type: 'module' }
   ],
-  modules: ['nuxt-booster', '@nuxt/scripts'],
+  modules: [],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
@@ -27,30 +27,10 @@ export default defineNuxtConfig({
   },
   builder: getBuilder(),
 
-  booster: {
-    debug: false,
-    densities: 'x1 x2',
-    optimizeSSR: {
-      cleanPreloads: true,
-      cleanPrefetches: true,
-      inlineStyles: true
-    },
-    detection: {
-      performance: true,
-      browserSupport: true,
-      battery: true
-    },
-    performanceMetrics: {
-      device: {
-        hardwareConcurrency: { min: 2, max: 48 },
-        deviceMemory: { min: 2 }
-      },
-      timing: {
-        fcp: 800,
-        dcl: 1200
-      }
-    }
-  },
+  // Remove all booster-related configurations
+  // booster: {
+  //   // ... (all booster options)
+  // },
 
   hooks: {
     'app:mounted': async () => {
@@ -59,14 +39,8 @@ export default defineNuxtConfig({
 
         if (!isSamsung) {
           await import('nuxt-booster');
-
-          // Additional checks to ensure Nuxt Booster is properly initialized
-          if (window.NuxtBooster && typeof window.NuxtBooster.init === 'function') {
-            window.NuxtBooster.init();
-          }
         } else {
           console.warn('Nuxt Booster disabled for Samsung browser');
-          delete window.NuxtBooster; // Ensure Nuxt Booster is completely removed
         }
       } catch (error) {
         console.error('Error in Nuxt Booster initialization:', error);
@@ -75,7 +49,7 @@ export default defineNuxtConfig({
   },
 
   watch: {
-    'booster.detection.browserSupport': {
+    'speedkit.runOptions.maxTime': {
       handler() {
         if (process.client) {
           this.hooks['app:mounted'].value();
