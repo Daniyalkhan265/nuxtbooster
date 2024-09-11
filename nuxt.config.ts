@@ -20,7 +20,10 @@ export default defineNuxtConfig({
     autoImport: true
   },
   builder: getBuilder(),
+  build:{
+    transpile: ['vuetify'],
 
+  },
   booster: {
     debug: false,
     // targetFormats: ['jpg|jpeg|png|gif'],
