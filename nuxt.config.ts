@@ -52,6 +52,15 @@ export default defineNuxtConfig({
         fcp: 800,
         dcl: 1200 // fallback if fcp is not available (safari)
       }
-    },}
-
+    },},
+  hooks: {
+    'app:mounted': async () => {
+      const isSupportedBrowser = !navigator.userAgent.toLowerCase().includes('samsung');
+      if (isSupportedBrowser) {
+        await import('nuxt-booster')
+      } else {
+        console.warn('Nuxt Booster disabled for Samsung browser');
+      }
+    }
+  }
 })
