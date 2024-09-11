@@ -5,6 +5,10 @@ function getBuilder() {
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
 }
 export default defineNuxtConfig({
+    buildModules: [
+        '@nuxt/typescript-build', // Enables TypeScript support in Nuxt
+    ],
+  modern: 'client',
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [
