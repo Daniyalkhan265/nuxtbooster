@@ -4,6 +4,7 @@ function getBuilder() {
       process.env.npm_config_builder || process.env.BUILDER || undefined;
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
 }
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -28,21 +29,17 @@ export default defineNuxtConfig({
 
   booster: {
     debug: false,
-    // targetFormats: ['jpg|jpeg|png|gif'],
     densities: 'x1 x2',
-
     optimizeSSR: {
       cleanPreloads: true,
       cleanPrefetches: true,
       inlineStyles: true
     },
-
     detection: {
       performance: true,
       browserSupport: true,
       battery: true
     },
-
     performanceMetrics: {
       device: {
         hardwareConcurrency: { min: 2, max: 48 },
@@ -50,17 +47,40 @@ export default defineNuxtConfig({
       },
       timing: {
         fcp: 800,
-        dcl: 1200 // fallback if fcp is not available (safari)
+        dcl: 1200
       }
-    },},
+    }
+  },
+
   hooks: {
     'app:mounted': async () => {
-      const isSupportedBrowser = !navigator.userAgent.toLowerCase().includes('samsung');
-      if (isSupportedBrowser) {
-        await import('nuxt-booster')
-      } else {
-        console.warn('Nuxt Booster disabled for Samsung browser');
+      try {
+        const isSamsung = navigator.userAgent.toLowerCase().includes('samsung');
+
+        if (!isSamsung) {
+          await import('nuxt-booster');
+
+          // Additional checks to ensure Nuxt Booster is properly initialized
+          if (window.NuxtBooster && typeof window.NuxtBooster.init === 'function') {
+            window.NuxtBooster.init();
+          }
+        } else {
+          console.warn('Nuxt Booster disabled for Samsung browser');
+          delete window.NuxtBooster; // Ensure Nuxt Booster is completely removed
+        }
+      } catch (error) {
+        console.error('Error in Nuxt Booster initialization:', error);
+      }
+    }
+  },
+
+  watch: {
+    'booster.detection.browserSupport': {
+      handler() {
+        if (process.client) {
+          this.hooks['app:mounted'].value();
+        }
       }
     }
   }
-})
+});
