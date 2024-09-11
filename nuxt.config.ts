@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
   modules: [
-    ['nuxt-booster']
+    'nuxt-booster'
   ],
   runtimeConfig: {
     public: {
