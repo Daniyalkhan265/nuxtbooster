@@ -1,20 +1,4 @@
 {
+  // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "target": "ESNext", // This ensures compatibility with modern JavaScript features
-    "module": "ESNext", // Required for proper module handling in a Nuxt app
-    "moduleResolution": "Node", // Ensures that modules are resolved in Node-style
-    "lib": ["ESNext", "DOM"], // Makes sure DOM and ESNext types are available
-    "strict": true, // Enables strict type-checking options
-    "jsx": "preserve", // Necessary for Vue JSX/TSX if needed
-    "esModuleInterop": true, // Ensures compatibility with commonjs modules
-    "skipLibCheck": true, // Skips type checks for third-party libraries, improving performance
-    "types": ["@nuxt/types", "@types/node", "@nuxt/vue-app"], // Adds Nuxt types
-    "allowJs": true // Allows compiling JavaScript files
-  },
-  "exclude": [
-    "node_modules",
-    ".nuxt",
-    "dist"
-  ]
 }
