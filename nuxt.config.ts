@@ -4,11 +4,11 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
   modules: [
-    'nuxt-booster',{
+    ['nuxt-booster', {
+      // ... other nuxt-booster options
     ssr: false,
-    }
+    }]
   ],
-
   runtimeConfig: {
     public: {
       disableInfoLayer: false
@@ -20,5 +20,5 @@ export default defineNuxtConfig({
     autoImport: false
   },
 
-  booster: true
+  nuxtBooster: true
 })
