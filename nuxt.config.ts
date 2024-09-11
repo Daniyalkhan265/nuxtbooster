@@ -10,19 +10,14 @@ export default defineNuxtConfig({
   scripts: [
     { src: '~/samsung.ts', type: 'module' }
   ],
-      modules: [
-        (context, { isDev }) => {
-          if (isDev || navigator.userAgent.toLowerCase().includes('samsung')) {
-            // Don't include nuxt-booster
-          } else {
-            return 'nuxt-booster'; // Include nuxt-booster for other browsers
-          }
-        },
-      ],
+  modules: ['nuxt-booster', '@nuxt/scripts'],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
     }
+  },
+  speedkit: {
+    runOptions: { maxTime: 1000, threshold: 0.65 }
   },
   ssr: true,
 
