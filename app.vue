@@ -1,18 +1,3 @@
-<script lang="ts" setup >
-import { ref, onMounted } from 'vue';
-
-const text = ref("this is testing project for nuxt booster");
-const jsLoaded = ref(false); // Initially set to false
-
-// Simulate JavaScript loading by changing the flag on mount
-onMounted(() => {
-  jsLoaded.value = true; // JavaScript has successfully loaded
-});
-
-const checking = () => {
-  text.value = "button is clicked";
-};
-</script>
 <template>
   <div id="app">
     <div v-if="jsLoaded">
@@ -29,4 +14,18 @@ const checking = () => {
   </div>
 </template>
 
+<script lang="ts" setup >
+import { ref, onMounted } from 'vue';
 
+const text = ref("this is testing project for nuxt booster");
+const jsLoaded = ref(false); // Initially set to false
+
+// Simulate JavaScript loading by changing the flag on mount
+onMounted(() => {
+  jsLoaded.value = true; // JavaScript has successfully loaded
+});
+
+const checking = () => {
+  text.value = "button is clicked";
+};
+</script>
