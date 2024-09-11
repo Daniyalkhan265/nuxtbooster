@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="js" setup>
 import { ref, onMounted } from 'vue';
 
 const text = ref("this is testing project for nuxt booster");
