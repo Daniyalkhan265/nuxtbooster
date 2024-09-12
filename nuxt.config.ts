@@ -13,10 +13,9 @@ export default defineNuxtConfig({
     { src: '~/samsung.ts', type: 'module' }
   ],
   modules: [
-    () => {
-      return isSamsung ? null : 'nuxt-booster';
-    }
-     , '@nuxt/scripts'],
+    ...(isSamsung ? [] : ['nuxt-booster']),
+    '@nuxt/scripts'
+  ],
   runtimeConfig: {
     public: {
       disableInfoLayer: false
