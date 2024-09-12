@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      disableInfoLayer: false
+      disableInfoLayer: true
     }
   },
   speedkit: {
@@ -56,5 +56,4 @@ export default defineNuxtConfig({
         dcl: 1200 // fallback if fcp is not available (safari)
       }
     },},
-  plugins: ['~/middleware/detectSamsung'],
 })
