@@ -4,8 +4,6 @@ function getBuilder() {
       process.env.npm_config_builder || process.env.BUILDER || undefined;
   return builder === 'webpack' ? '@nuxt/webpack-builder' : undefined;
 }
-const isSamsung = navigator.userAgent.toLowerCase().includes('samsung');
-console.log('>>>>>',isSamsung);
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -14,7 +12,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     () => {
-      return isSamsung ? null : 'nuxt-booster';
+      return navigator.userAgent.toLowerCase().includes('samsung') ? null : 'nuxt-booster';
     }
      , '@nuxt/scripts'],
   runtimeConfig: {
